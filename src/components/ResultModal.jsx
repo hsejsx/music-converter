@@ -6,7 +6,14 @@ export default function ResultModal({ title, content, handleChange }) {
 
     const handleClick = () => {
         const music = musicRef.current;
-        html2canvas(music).then(canvas => {
+        const scale = 2;
+        const options = {
+            scale,
+            scrollX: 0,
+            scrollY: -window.scrollY,
+        };
+
+        html2canvas(music, options).then(canvas => {
             const img = canvas.toDataURL('image/png');
             saveFile(img, `${title}.png`);
         })
