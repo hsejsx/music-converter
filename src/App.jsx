@@ -1,9 +1,11 @@
-import './App.css'
+import './App.css';
+import Edit from './components/Edit';
 
 function App() {
 
   return (
     <>
+      <Edit />
     </>
   )
 }
