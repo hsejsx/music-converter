@@ -30,7 +30,7 @@ export default function Edit() {
     }
 
     return (
-        <section className='w-7/12'>
+        <section className='w-11/12 lg:w-7/12'>
             <EditForm form={form} setForm={setForm} />
             <EditInfo />
             <div className='w-full flex justify-center'>

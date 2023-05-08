@@ -23,14 +23,14 @@ export default function ResultModal({ title, content, handleChange }) {
     }
 
     return (
-        <section className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-10/12 h-[90vh] bg-white overflow-y-auto'>
+        <section className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full h-[100vh] bg-white overflow-y-auto'>
             <div
                 ref={musicRef}
-                className='p-10'>
+                className='p-5 lg:p-10'>
                 <h1 className='pb-3 text-3xl font-bold text-center'>{title}</h1>
-                <p className='text-3xl leading-loose whitespace-break-spaces'>{content}</p>
+                <p className='lg:px-28 text-3xl leading-loose whitespace-break-spaces'>{content}</p>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center mb-5 lg:mb-10'>
                 <button
                     onClick={handleClick}
                     type='button'
