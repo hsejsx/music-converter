@@ -1,32 +1,17 @@
 import React, { useRef } from 'react';
 import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 
 export default function ResultModal({ title, content, handleChange }) {
     const musicRef = useRef();
 
     const handleClick = () => {
         const music = musicRef.current;
-        const scale = 2;
-        const options = {
-            scale,
-            scrollX: 0,
-            scrollY: -window.scrollY,
-        };
-
-        html2canvas(music, options).then(canvas => {
-            const img = canvas.toDataURL('image/png');
-            saveFile(img, `${title}.png`);
-        })
-    }
-
-    const saveFile = (dataUrl, filename) => {
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = filename;
-
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        html2canvas(music).then(canvas => {
+            canvas.toBlob(blob => {
+                saveAs(blob, `${title}.png`);
+            });
+        });
     }
 
     return (
@@ -54,4 +39,3 @@ export default function ResultModal({ title, content, handleChange }) {
         </section>
     );
 }
-
